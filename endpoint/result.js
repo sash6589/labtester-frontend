@@ -13,7 +13,8 @@ function result(req, res, next) {
             testStdout: obj.testStdout,
             testStderr: obj.testStderr,
             codestyleStdout: obj.codestyleStdout,
-            codestyleStderr: obj.codestyleStderr
+            codestyleStderr: obj.codestyleStderr,
+            fileTestsResult: obj.fileTestsResult
         });
     });
 }
