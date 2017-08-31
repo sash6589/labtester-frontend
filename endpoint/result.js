@@ -1,10 +1,19 @@
 var request = require('request');
-
-var baseurl = 'http://localhost:8090/submit?gitUrl=';
+var buildUrl = require('build-url');
 
 // noinspection JSUnusedLocalSymbols
 function result(req, res, next) {
-    request(baseurl + req.body.gitUrlInput, function (error, response, body) {
+    var gitUrl = req.body.gitUrlInput;
+    var problemName = req.body.problemNameList;
+    var url = buildUrl('http://localhost:8090', {
+        path: 'submit',
+        queryParams: {
+            gitUrl: gitUrl,
+            problemName: problemName
+        }
+    });
+
+    request(url, function (error, response, body) {
         if (error) {
             throw error;
         }

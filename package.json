@@ -19,6 +19,7 @@
   "homepage": "https://github.com/sash6589/labtester-frontend#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "build-url": "^1.0.10",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
     "request": "^2.81.0"
