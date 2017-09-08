@@ -13,16 +13,16 @@
 <div id="slowWarning" style="display:none">
     Решение проверяется, пожалуйста, подождите...
 </div>
-<form id="submitForm" action="http://localhost:8888/result" method="post">
-    <p style="display:inline" id="textGit">Git url</p>
-    <br><input id="gitUrlInput" name="gitUrlInput" title="gitUrlInput"/><br>
-    <br><p style="display:inline">Задача</p>
+<form id="submitForm" action="http://localhost:8888/result" enctype="multipart/form-data" method="post">
+    <p style="display:inline">Задача</p>
     <br><select id="problemNameList" name="problemNameList" title="problemNameList">
         <option disabled>Выберите задачу</option>
         <% problemNames.map(item=> {%>
-         <option> <%= item %> </option>
+        <option> <%= item %> </option>
         <% }) %>
-    </select><br>
+    </select>
+    <br><input id="gitUrlInput" name="gitUrlInput" title="gitUrlInput" placeholder="Git url"/><br>
+    <input type="file" name="upload"><br>
     <input type="submit" value="Отправить" onclick="clearPage()"/>
 </form>
 </body>
