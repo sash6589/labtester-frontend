@@ -1,14 +1,13 @@
 module.exports = function (app) {
     var router = require('./router'),
-        fs = require('fs'),
-        dir = __dirname + '/tmp';
+        bodyParser = require('body-parser');
 
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({
+        extended: true
+    }));
 
     app.set('view engine', 'ejs');
-
-    if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir);
-    }
 
     router(app);
 };
