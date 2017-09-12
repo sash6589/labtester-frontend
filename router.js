@@ -1,7 +1,11 @@
-var submit = require('./endpoint/submit'),
-    result = require('./endpoint/result');
+var express = require('express'),
+    submit = require('./endpoint/submit'),
+    result = require('./endpoint/result'),
+    multer = require('multer'),
+    upload = multer({ dest: 'tmp/'}),
+    router = express.Router();
 
-module.exports = function (app) {
-    app.get('/submit', submit.submit);
-    app.post('/result', result.result);
-};
+router.get('/submit', submit.submit);
+router.post('/result', upload.any(), result.result);
+
+module.exports = router;

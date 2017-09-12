@@ -1,6 +1,11 @@
 module.exports = function (app) {
-    var router = require('./router'),
-        bodyParser = require('body-parser');
+    var bodyParser = require('body-parser'),
+        fs = require('fs'),
+        dir = __dirname + '/tmp';
+
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+    }
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({
@@ -8,6 +13,4 @@ module.exports = function (app) {
     }));
 
     app.set('view engine', 'ejs');
-
-    router(app);
 };
