@@ -13,4 +13,8 @@ module.exports = function (app) {
     }));
 
     app.set('view engine', 'ejs');
+
+    app.use(function (err, req, res, next) {
+        res.status(500).send(err.message)
+    })
 };
