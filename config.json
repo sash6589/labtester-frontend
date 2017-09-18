@@ -1,0 +1,7 @@
+{
+  "master": {
+    "url": "http://146.185.130.44:8090",
+    "problems": "/problems",
+    "submit": "/submit"
+  }
+}

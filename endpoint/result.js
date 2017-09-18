@@ -1,6 +1,7 @@
 var request = require('request');
 var buildUrl = require('build-url');
 var fs = require('fs');
+var config = require('../config.json');
 
 // noinspection JSUnusedLocalSymbols
 function result(req, res, next) {
@@ -14,8 +15,8 @@ function result(req, res, next) {
 function submitWithUrl(res, fields) {
     var gitUrl = fields.gitUrlInput;
     var problemName = fields.problemNameList;
-    var url = buildUrl('http://localhost:8090', {
-        path: 'submit',
+    var url = buildUrl(config.master.url, {
+        path: config.master.submit,
         queryParams: {
             gitUrl: gitUrl,
             problemName: problemName
@@ -31,8 +32,8 @@ function submitWithUrl(res, fields) {
 }
 
 function submitWithFile(res, fields, file) {
-    var url = buildUrl('http://localhost:8090', {
-        path: 'submit'
+    var url = buildUrl(config.master.url, {
+        path: config.master.submit
     });
     var problemName = fields.problemNameList;
     fs.readFile(file.path, function (err, data) {
@@ -54,7 +55,8 @@ function submitWithFile(res, fields, file) {
 
 function sendResult(res, error, response, body) {
     if (error) {
-        throw error;
+        console.log(error);
+        return;
     }
     res.render('pages/result', {
         testStdout: body.testStdout,
