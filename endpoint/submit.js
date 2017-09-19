@@ -15,7 +15,8 @@ function submit(req, res, next) {
 
         var obj = JSON.parse(body);
         res.render('pages/submit', {
-            problemNames: obj
+            problemNames: obj,
+            actionUrl: config.frontend.url + config.frontend.result
         });
     });
 }

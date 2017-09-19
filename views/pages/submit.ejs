@@ -13,7 +13,7 @@
 <div id="slowWarning" style="display:none">
     Решение проверяется, пожалуйста, подождите...
 </div>
-<form id="submitForm" action="http://localhost:8888/result" enctype="multipart/form-data" method="post">
+<form id="submitForm" action="<%= actionUrl %>" enctype="multipart/form-data" method="post">
     <p style="display:inline">Задача</p>
     <br><select id="problemNameList" name="problemNameList" title="problemNameList">
         <option disabled>Выберите задачу</option>
