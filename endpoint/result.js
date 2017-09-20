@@ -38,7 +38,8 @@ function submitWithFile(res, fields, file) {
     var problemName = fields.problemNameList;
     fs.readFile(file.path, function (err, data) {
         if (err) {
-            throw err;
+            console.log(err);
+            return;
         }
         request.post({
             url: url,

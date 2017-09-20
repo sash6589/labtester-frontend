@@ -9,8 +9,8 @@ function submit(req, res, next) {
     console.log(baseurl);
     request(baseurl, function (error, response, body) {
         if (error) {
-
-            throw error;
+            console.log(error);
+            return;
         }
 
         var obj = JSON.parse(body);
