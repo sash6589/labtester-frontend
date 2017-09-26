@@ -3,6 +3,8 @@ var buildUrl = require('build-url');
 var fs = require('fs');
 var config = require('../config.json');
 
+var masterUrl = config.host + config.master.port;
+
 // noinspection JSUnusedLocalSymbols
 function result(req, res, next) {
     if (req.body.gitUrlInput === '') {
@@ -15,7 +17,7 @@ function result(req, res, next) {
 function submitWithUrl(res, fields) {
     var gitUrl = fields.gitUrlInput;
     var problemName = fields.problemNameList;
-    var url = buildUrl(config.master.url, {
+    var url = buildUrl(masterUrl, {
         path: config.master.submit,
         queryParams: {
             gitUrl: gitUrl,
@@ -32,7 +34,7 @@ function submitWithUrl(res, fields) {
 }
 
 function submitWithFile(res, fields, file) {
-    var url = buildUrl(config.master.url, {
+    var url = buildUrl(masterUrl, {
         path: config.master.submit
     });
     var problemName = fields.problemNameList;

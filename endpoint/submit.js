@@ -1,7 +1,7 @@
 var path = require('path');
 var request = require('request');
 var config = require('../config.json');
-var baseurl = config.master.url + config.master.problems;
+var baseurl = config.host + config.master.port + config.master.problems;
 
 // noinspection JSUnusedLocalSymbols
 function submit(req, res, next) {
@@ -16,7 +16,7 @@ function submit(req, res, next) {
         var obj = JSON.parse(body);
         res.render('pages/submit', {
             problemNames: obj,
-            actionUrl: config.frontend.url + config.frontend.result
+            actionUrl: config.host + config.frontend.port + config.frontend.result
         });
     });
 }
