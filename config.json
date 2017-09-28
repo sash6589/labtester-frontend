@@ -1,5 +1,5 @@
 {
-  "host": "http://146.185.130.44",
+  "host": "http://95.85.45.84",
   "master": {
     "port": ":8090",
     "problems": "/problems",
