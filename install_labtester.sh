@@ -4,13 +4,14 @@ sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 
 echo "Installing java9"
-sudo apt-get install oracle-java9-installer
+sudo apt-get install oracle-java8-installer
 
 echo "Installing gradle"
 sudo apt-get install gradle
 
 echo "Installing npm"
 sudo apt-get install npm
+sudo apt-get install nodejs-legacy
 
 echo "Installing postgres"
 sudo apt-get install postgresql postgresql-contrib
