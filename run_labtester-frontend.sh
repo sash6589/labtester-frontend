@@ -2,4 +2,5 @@
 
 rm log.txt
 
+npm install
 npm start >> log.txt &
