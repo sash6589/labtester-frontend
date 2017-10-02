@@ -13,6 +13,9 @@ echo "Installing npm"
 sudo apt-get install npm
 sudo apt-get install nodejs-legacy
 
+echo "Installing pep8"
+sudo apt-get install pep8
+
 echo "Installing postgres"
 sudo apt-get install postgresql postgresql-contrib
 sudo sed -i "s/#listen_addresses = 'localhost'/listen_addresses = '*'/g" /etc/postgresql/9.5/main/postgresql.conf
