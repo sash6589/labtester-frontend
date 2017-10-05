@@ -29,3 +29,5 @@ sudo service postgresql restart
 echo "Configuring"
 sudo sed -i "s/\"host\": \"\",/\"host\": \"http:\/\/${host}\",/g" ./config.json
 sudo sed -i "s/host.ip = /host.ip = ${host}/g" ../labtester-master/src/main/resources/application.properties
+
+./enable_swap.sh
