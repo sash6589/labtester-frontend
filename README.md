@@ -11,3 +11,20 @@ labtester состоит из трех компонентов:
 Выполнить `./run_labtester.sh <host_address>`, где `<host_address>` - ip адрес машины на которой разворачивается labtester.
 
 Логи пишутся в соответствующие файлы `log.txt`.
+## Добавление задачи в лабораторную работу
+``` 
+curl -H "Content-Type: application/json" 
+     -X POST 
+     -d '[
+           {
+             "name": "A", 
+             "checkCodestyle": "true", 
+             "checkCodestyleCommand": "pep8 run/main.py", 
+             "runFileTests": "true", 
+             "runFileTestsCommand": "python main.py", 
+             "runFileTestsUrl": "https://github.com/sash6589/file-tests"
+           }
+         ]' http://<host_address>:8090/problem
+ ```
+ ## Отправка решения на проверку
+ Отправить решение задачи на проверку в labtester можно на странице `http//<host_address>:8888/submit`
