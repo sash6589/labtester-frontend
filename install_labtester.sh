@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+host=$1
+
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 
@@ -23,3 +25,7 @@ echo "host all all all md5" >> /etc/postgresql/9.5/main/pg_hba.conf
 sudo -u postgres psql postgres -c "ALTER USER postgres WITH PASSWORD 'labtester';"
 sudo invoke-rc.d postgresql reload
 sudo service postgresql restart
+
+echo "Configuring"
+sudo sed -i "s/\"host\": \"\",/\"host\": \"http:\/\/${host}\",/g" ./config.json
+sudo sed -i "s/host.ip = /host.ip = ${host}/g" ../labtester-master/src/main/resources/application.properties
