@@ -6,7 +6,13 @@ var baseurl = config.host + config.master.port + config.master.problems;
 // noinspection JSUnusedLocalSymbols
 function submit(req, res, next) {
     console.log('Request handler \'start\' was called');
-    console.log(baseurl);
+
+    if (!req.session.user) {
+        res.redirect('/login');
+        return
+    }
+    var user = req.session.user;
+
     request(baseurl, function (error, response, body) {
         if (error) {
             console.log(error);
@@ -15,6 +21,7 @@ function submit(req, res, next) {
 
         var obj = JSON.parse(body);
         res.render('pages/submit', {
+            username: user,
             problemNames: obj,
             actionUrl: config.host + config.frontend.port + config.frontend.result
         });

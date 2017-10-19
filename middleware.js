@@ -1,6 +1,8 @@
 module.exports = function (app) {
     var bodyParser = require('body-parser'),
         fs = require('fs'),
+        express = require('express'),
+        session = require('express-session'),
         dir = __dirname + '/tmp';
 
     if (!fs.existsSync(dir)) {
@@ -13,6 +15,13 @@ module.exports = function (app) {
     }));
 
     app.set('view engine', 'ejs');
+
+    app.use(session({
+        secret: 'ssshhhhh',
+        resave: true,
+        saveUninitialized: true
+    }));
+
 
     app.use(function (err, req, res, next) {
         res.status(500).send(err.message)
