@@ -8,18 +8,21 @@ var masterUrl = config.host + config.master.port;
 // noinspection JSUnusedLocalSymbols
 function result(req, res, next) {
     if (req.body.gitUrlInput === '') {
-        submitWithFile(res, req.body, req.files[0]);
+        submitWithFile(req, res);
     } else {
-        submitWithUrl(res, req.body);
+        submitWithUrl(req, res);
     }
 }
 
-function submitWithUrl(res, fields) {
+function submitWithUrl(req, res) {
+    var fields = req.body;
+
     var gitUrl = fields.gitUrlInput;
     var problemName = fields.problemNameList;
     var url = buildUrl(masterUrl, {
         path: config.master.submit,
         queryParams: {
+            user: req.session.user,
             gitUrl: gitUrl,
             problemName: problemName
         }
@@ -33,9 +36,15 @@ function submitWithUrl(res, fields) {
     });
 }
 
-function submitWithFile(res, fields, file) {
+function submitWithFile(req, res) {
+    var fields = req.body;
+    var file = req.files[0];
+
     var url = buildUrl(masterUrl, {
-        path: config.master.submit
+        path: config.master.submit,
+        queryParams: {
+            user: req.session.user
+        }
     });
     var problemName = fields.problemNameList;
     fs.readFile(file.path, function (err, data) {

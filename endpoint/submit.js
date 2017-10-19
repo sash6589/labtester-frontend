@@ -5,8 +5,6 @@ var baseurl = config.host + config.master.port + config.master.problems;
 
 // noinspection JSUnusedLocalSymbols
 function submit(req, res, next) {
-    console.log('Request handler \'start\' was called');
-
     if (!req.session.user) {
         res.redirect('/login');
         return
