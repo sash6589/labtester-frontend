@@ -17,10 +17,15 @@ function submit(req, res, next) {
             return;
         }
 
-        var obj = JSON.parse(body);
+        var names = [];
+        var problems = JSON.parse(body);
+        for (var i = 0; i < problems.length; ++i) {
+            names.push(problems[i].name);
+        }
+
         res.render('pages/submit', {
             username: user,
-            problemNames: obj,
+            problemNames: names,
             actionUrl: config.host + config.frontend.port + config.frontend.result
         });
     });
