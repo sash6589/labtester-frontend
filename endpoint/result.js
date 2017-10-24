@@ -22,7 +22,7 @@ function submitWithUrl(req, res) {
     var url = buildUrl(masterUrl, {
         path: config.master.submit,
         queryParams: {
-            user: req.session.user,
+            username: req.session.user,
             gitUrl: gitUrl,
             problemName: problemName
         }
@@ -43,7 +43,7 @@ function submitWithFile(req, res) {
     var url = buildUrl(masterUrl, {
         path: config.master.submit,
         queryParams: {
-            user: req.session.user
+            username: req.session.user
         }
     });
     var problemName = fields.problemNameList;
