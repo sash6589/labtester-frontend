@@ -23,9 +23,12 @@ function submit(req, res, next) {
             names.push(problems[i].name);
         }
 
+        var languages = problems[0].languages;
+
         res.render('pages/submit', {
             username: user,
             problemNames: names,
+            languages: languages,
             actionUrl: config.host + config.frontend.port + config.frontend.result
         });
     });

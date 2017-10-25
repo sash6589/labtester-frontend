@@ -19,12 +19,14 @@ function submitWithUrl(req, res) {
 
     var gitUrl = fields.gitUrlInput;
     var problemName = fields.problemNameList;
+    var language = fields.languagesList;
     var url = buildUrl(masterUrl, {
         path: config.master.submit,
         queryParams: {
             username: req.session.user,
             gitUrl: gitUrl,
-            problemName: problemName
+            problemName: problemName,
+            language: language
         }
     });
 
@@ -40,13 +42,17 @@ function submitWithFile(req, res) {
     var fields = req.body;
     var file = req.files[0];
 
+    var problemName = fields.problemNameList;
+    var language = fields.languagesList;
+
     var url = buildUrl(masterUrl, {
         path: config.master.submit,
         queryParams: {
-            username: req.session.user
+            username: req.session.user,
+            language: language
         }
     });
-    var problemName = fields.problemNameList;
+
     fs.readFile(file.path, function (err, data) {
         if (err) {
             console.log(err);
