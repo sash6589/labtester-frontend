@@ -22,8 +22,7 @@ module.exports = function (app) {
         saveUninitialized: true
     }));
 
-
     app.use(function (err, req, res, next) {
         res.status(500).send(err.message)
-    })
+    });
 };

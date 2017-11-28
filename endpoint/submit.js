@@ -5,11 +5,11 @@ var baseurl = config.host + config.master.port + config.master.problems;
 
 // noinspection JSUnusedLocalSymbols
 function submit(req, res, next) {
-    if (!req.session.user) {
+    if (!req.session.login) {
         res.redirect('/login');
         return
     }
-    var user = req.session.user;
+    var login = req.session.login;
 
     request(baseurl, function (error, response, body) {
         if (error) {
@@ -26,7 +26,7 @@ function submit(req, res, next) {
         var languages = problems[0].languages;
 
         res.render('pages/submit', {
-            username: user,
+            username: login,
             problemNames: names,
             languages: languages,
             actionUrl: config.host + config.frontend.port + config.frontend.result

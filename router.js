@@ -13,6 +13,7 @@ var express = require('express'),
 
 router.get('/submit', submit.submit);
 router.get('/login', login.loginBegin);
+router.get('/loginold', login.loginOld);
 
 router.post('/result', upload.any(), result.result);
 router.post('/login', upload.any(),login.loginEnd);

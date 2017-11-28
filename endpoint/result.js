@@ -23,7 +23,8 @@ function submitWithUrl(req, res) {
     var url = buildUrl(masterUrl, {
         path: config.master.submit,
         queryParams: {
-            username: req.session.user,
+            username: req.session.login,
+            fullname: encodeURIComponent(req.session.fullname),
             gitUrl: gitUrl,
             problemName: problemName,
             language: language
@@ -48,7 +49,8 @@ function submitWithFile(req, res) {
     var url = buildUrl(masterUrl, {
         path: config.master.submit,
         queryParams: {
-            username: req.session.user,
+            username: req.session.login,
+            fullname: encodeURIComponent(req.session.fullname),
             language: language
         }
     });

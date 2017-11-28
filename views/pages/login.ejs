@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-signin-client_id" content="1066326414068-cpk6jibvm4tbe303fncnug3q3rl72a3q.apps.googleusercontent.com">
     <title>Title</title>
 </head>
 <style>
@@ -10,10 +11,38 @@
     }
 </style>
 <body>
-<form id="loginForm" action="<%= actionUrl %>" enctype="multipart/form-data" method="post">
-    <p style="display:inline">Введите логин</p>
-    <br><input id="loginInput" name="loginInput" title="loginInput" placeholder="логин"/><br>
-    <input type="submit" value="Войти"/>
-</form>
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
 </body>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script>
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('Name: ' + profile.getName());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+        var params = {
+            loginInput: profile.getEmail(),
+            nameInput: profile.getName()
+        }
+        method = "post"
+
+        var form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", "<%= actionUrl %>")
+
+        for (var key in params) {
+            if (params.hasOwnProperty(key)) {
+                var hiddenField = document.createElement("input");
+                hiddenField.setAttribute("type", "hidden");
+                hiddenField.setAttribute("name", key);
+                hiddenField.setAttribute("value", params[key]);
+
+                form.appendChild(hiddenField);
+            }
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>
 </html>
