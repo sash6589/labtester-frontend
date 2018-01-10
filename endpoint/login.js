@@ -15,6 +15,9 @@ function loginBegin(req, res, next) {
 }
 
 function loginEnd(req, res, next) {
+    var login = req.body.loginInput;
+    var password = req.body.passwordInput;
+
     req.session.login = req.body.loginInput;
     req.session.fullname = '';
     if (typeof req.body.nameInput !== 'undefined') {

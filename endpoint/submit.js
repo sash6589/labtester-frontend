@@ -6,7 +6,7 @@ var baseurl = config.host + config.master.port + config.master.problems;
 // noinspection JSUnusedLocalSymbols
 function submit(req, res, next) {
     if (!req.session.login) {
-        res.redirect('/login');
+        res.redirect('/loginold');
         return
     }
     var login = req.session.login;
