@@ -7,9 +7,10 @@ labtester состоит из трех компонентов:
 ## Установка зависимостей и базы данных
 1) Склонировать репозитории [labtester-frontend](https://github.com/sash6589/labtester-frontend), [labtester-master](https://github.com/sash6589/labtester-master), [labtester-worker](https://github.com/sash6589/labtester-worker) в одну папку.
 2) Во всех репозиториях зачекаутить бранч `release_x_y_z`
-3) Выполнить `./install_labtester.sh`
+3) Выполнить `./install_labtester.sh` <host_address>`, где `<host_address>` - ip адрес машины на которой разворачивается labtester.
+
 ## Сборка и запуск всей системы
-Выполнить `./run_labtester.sh <host_address>`, где `<host_address>` - ip адрес машины на которой разворачивается labtester.
+Выполнить `./run_labtester.sh
 
 Логи пишутся в соответствующие файлы `log.txt`.
 ## Добавление задачи в лабораторную работу
