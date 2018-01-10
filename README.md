@@ -14,18 +14,16 @@ labtester состоит из трех компонентов:
 Логи пишутся в соответствующие файлы `log.txt`.
 ## Добавление задачи в лабораторную работу
 ``` 
-curl -H "Content-Type: application/json" 
+curl 
+     -H "Content-Type: application/json" 
      -X POST 
-     -d '[
-           {
-             "name": "A", 
-             "checkCodestyle": "true", 
-             "checkCodestyleCommand": "pep8 run/main.py", 
-             "runFileTests": "true", 
-             "runFileTestsCommand": "python main.py", 
-             "runFileTestsUrl": "https://github.com/sash6589/file-tests"
-           }
-         ]' http://<host_address>:8090/problem
+     -d '[{
+          "name": "A", 
+          "checkCodestyle": "false", 
+          "runFileTests": "true", 
+          "runFileTestsUrl": "https://github.com/sash6589/file-tests", 
+          "languages": ["c"] }]' 
+     http://<hostname>:8090/problem
  ```
  ## Отправка решения на проверку
  Отправить решение задачи на проверку в labtester можно на странице `http//<host_address>:8888/submit`
