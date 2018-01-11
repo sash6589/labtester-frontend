@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    input {
+        margin: 0;
+    }
+</style>
+<body>
+<form id="loginForm" action="<%= actionUrl %>" enctype="multipart/form-data" method="post">
+    <p style="display:inline">Войдите</p>
+    <br><p style="display: inline; color: red; font-size: small">Неправильный логин или пароль</p>
+    <br><input id="loginInput" name="loginInput" title="loginInput" placeholder="логин"/><br>
+    <input type="password" id="passwordInput" name="passwordInput" title="passwordInput" placeholder="пароль"/><br>
+    <input type="submit" value="Войти"/>
+</form>
+</body>
+</html>
