@@ -7,11 +7,12 @@ var masterUrl = config.host + config.master.port;
 
 // noinspection JSUnusedLocalSymbols
 function result(req, res, next) {
-    if (req.body.gitUrlInput === '') {
-        submitWithFile(req, res);
-    } else {
-        submitWithUrl(req, res);
-    }
+    // if (req.body.gitUrlInput === '') {
+    //     submitWithFile(req, res);
+    // } else {
+    //     submitWithUrl(req, res);
+    // }
+    submitWithFile(req, res);
 }
 
 function submitWithUrl(req, res) {
@@ -79,10 +80,10 @@ function sendResult(res, error, response, body) {
         return;
     }
     res.render('pages/result', {
-        testStdout: body.testStdout,
-        testStderr: body.testStderr,
-        codestyleStdout: body.codestyleStdout,
-        codestyleStderr: body.codestyleStderr,
+        // testStdout: body.testStdout,
+        // testStderr: body.testStderr,
+        // codestyleStdout: body.codestyleStdout,
+        // codestyleStderr: body.codestyleStderr,
         fileTestsResult: body.fileTestsResult
     });
 }

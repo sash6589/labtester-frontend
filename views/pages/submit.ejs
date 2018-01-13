@@ -22,13 +22,14 @@
         <option> <%= item %> </option>
         <% }) %>
     </select>
+    <br><p style="display:inline">Язык</p>
     <br><select id="languagesList" name="languagesList" title="languagesList">
         <option disabled>Выберите язык</option>
         <% languages.map(item=> {%>
         <option> <%= item %> </option>
         <% }) %>
-    </select>
-    <br><input id="gitUrlInput" name="gitUrlInput" title="gitUrlInput" placeholder="Git url"/><br>
+    </select><br>
+    <!--<br><input id="gitUrlInput" name="gitUrlInput" title="gitUrlInput" placeholder="Git url"/><br>-->
     <input type="file" name="upload"><br>
     <input type="submit" value="Отправить" onclick="clearPage()"/>
 </form>
