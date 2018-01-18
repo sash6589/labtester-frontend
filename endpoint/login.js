@@ -51,7 +51,13 @@ function loginEnd(req, res, next) {
     //         });
     //     }
     // });
-    res.redirect('/submit')
+    req.session.login = req.body.loginInput;
+    req.session.fullname = '';
+    if (typeof req.body.nameInput !== 'undefined') {
+        req.session.fullname = req.body.nameInput;
+    }
+
+    res.redirect('/submit');
 }
 
 exports.loginOld = loginOld;
