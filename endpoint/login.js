@@ -29,29 +29,29 @@ function loginEnd(req, res, next) {
             password: password
         }
     });
-    request({
-        url: url
-    }, function (error, response, body) {
-        if (error) {
-            console.log(error);
-            return;
-        }
-        console.log("Response code " + response.statusCode);
-        if (response.statusCode === 200) {
-            req.session.login = req.body.loginInput;
-            req.session.fullname = '';
-            if (typeof req.body.nameInput !== 'undefined') {
-                req.session.fullname = req.body.nameInput;
-            }
-
-            res.redirect('/submit');
-        } else {
-            res.render('pages/loginOldWrong', {
-                actionUrl: actionUrl
-            });
-        }
-    });
-
+    // request({
+    //     url: url
+    // }, function (error, response, body) {
+    //     if (error) {
+    //         console.log(error);
+    //         return;
+    //     }
+    //     console.log("Response code " + response.statusCode);
+    //     if (response.statusCode === 200) {
+    //         req.session.login = req.body.loginInput;
+    //         req.session.fullname = '';
+    //         if (typeof req.body.nameInput !== 'undefined') {
+    //             req.session.fullname = req.body.nameInput;
+    //         }
+    //
+    //         res.redirect('/submit');
+    //     } else {
+    //         res.render('pages/loginOldWrong', {
+    //             actionUrl: actionUrl
+    //         });
+    //     }
+    // });
+    res.redirect('/submit')
 }
 
 exports.loginOld = loginOld;
