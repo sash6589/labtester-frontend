@@ -5,7 +5,7 @@ host=$1
 sudo add-apt-repository ppa:webupd8team/java
 sudo apt-get update
 
-echo "Installing java9"
+echo "Installing java8"
 sudo apt-get install oracle-java8-installer
 
 echo "Installing gradle"
