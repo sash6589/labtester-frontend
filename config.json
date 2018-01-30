@@ -1,9 +1,10 @@
 {
-  "host": "",
+  "host": "http://localhost",
   "master": {
     "port": ":8090",
     "problems": "/problems",
-    "submit": "/submit"
+    "submit": "/submit",
+    "login": "/login"
   },
   "frontend": {
     "port": ":8888",
