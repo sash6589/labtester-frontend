@@ -1,5 +1,5 @@
 {
-  "host": "http://localhost",
+  "host": "",
   "master": {
     "port": ":8090",
     "problems": "/problems",
