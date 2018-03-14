@@ -12,7 +12,7 @@ cd ../labtester-master
 
 echo "Running labtester-worker"
 cd ../labtester-worker
-./run_labtester-worker.sh $1
+./run_labtester-worker.sh "$1"
 
 echo "Running labtester-frontend"
 cd ../labtester-frontend
