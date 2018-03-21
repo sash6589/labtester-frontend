@@ -26,11 +26,11 @@ sudo -u postgres psql postgres -c "ALTER USER postgres WITH PASSWORD 'labtester'
 sudo invoke-rc.d postgresql reload
 sudo service postgresql restart
 
-echo "Configuring"
-sudo sed -i "s/\"host\": \"\",/\"host\": \"http:\/\/${host}\",/g" ./config.json
-sudo sed -i "s/host.ip = /host.ip = ${host}/g" ../labtester-master/src/main/resources/application.properties
-
 echo "Installing docker"
 sudo curl -sSL https://get.docker.com/ | sh
 
 ./enable_swap.sh
+
+
+curl -L https://github.com/docker/machine/releases/download/v0.13.0/docker-machine-`uname -s`-`uname -m` >/tmp/docker-machine && sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+
