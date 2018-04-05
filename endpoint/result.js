@@ -7,12 +7,11 @@ var masterUrl = config.host + config.master.port;
 
 // noinspection JSUnusedLocalSymbols
 function result(req, res, next) {
-    // if (req.body.gitUrlInput === '') {
-    //     submitWithFile(req, res);
-    // } else {
-    //     submitWithUrl(req, res);
-    // }
-    submitWithFile(req, res);
+    if (req.body.gitUrlInput === '') {
+        submitWithFile(req, res);
+    } else {
+        submitWithUrl(req, res);
+    }
 }
 
 function submitWithUrl(req, res) {
