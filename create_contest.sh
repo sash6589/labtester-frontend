@@ -1,4 +1,5 @@
 host=$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
 
 curl -H "Content-Type: application/json" -X POST -d '[{"name": "file-tests", "checkCodestyle": "false", "runFileTests": "true", "runFileTestsUrl": "https://github.com/sash6589/file-tests", "languages": ["python", "cpp", "java"] }]' http://$host:8090/problem
-curl -H "Content-Type: application/json" -X POST -d '[{"name": "python-unit-tests", "checkCodestyle": "true", "checkCodestyleCommand": "pep8 run/main.py", "runTests": "true", "runTestsUrl": "https://github.com/sash6589/test", "runTestsCommand": "python -m unittest discover", "languages": ["python", "cpp", "java"] }]' http://$host:8090/problem
+curl -H "Content-Type: application/json" -X POST -d '[{"name": "python-unit-tests", "checkCodestyle": "true", "checkCodestyleCommand": "pep8 temp/main.py", "runTests": "true", "runTestsUrl": "https://github.com/sash6589/test", "runTestsCommand": "python -m unittest discover", "languages": ["python", "cpp", "java"] }]' http://$host:8090/problem
+curl -H "Content-Type: application/json" -X POST -d '[{"name": "java-unit-tests", "checkCodestyle": "false", "runTests": "true", "runTestsUrl": "https://github.com/sash6589/tests-java", "runTestsCommand": "gradle test", "languages": ["python", "cpp", "java"] }]' http://$host:8090/problem
