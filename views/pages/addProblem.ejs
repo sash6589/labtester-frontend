@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="submitForm" action="<%= actionUrl %>" enctype="multipart/form-data" method="post">
+    <p>Пользователь <%= username %></p>
+    <input id="problemNameInput" name="problemNameInput" title="problemNameInput" placeholder="Название задачи"/><br><br>
+
+    <input id="languagesInput" name="languagesInput" title="languagesInput" placeholder="Список языков программирования"/><br><br>
+
+    <p style="display:inline">Проверка code style</p>
+    <input id="checkCodeStyleCheckbox" name="checkCodeStyleCheckbox" title="checkCodeStyleCheckbox" type="checkbox"><br>
+    <input id="checkCodeStyleCommandInput" name="checkCodeStyleCommandInput" title="checkCodeStyleCommandInput" placeholder="Команда запуска проверки code style"/><br><br>
+
+    <p style="display:inline">Юнит тесты</p>
+    <input id="runTestsCheckbox" name="runTestsCheckbox" title="runTestsCheckbox" type="checkbox"><br>
+    <input id="runTestsUrlInput" name="runTestsUrlInput" title="runTestsUrlInput" placeholder="Ссылка на репозиторий"/><br>
+    <input id="runTestsCommandInput" name="runTestsCommandInput" title="runTestsCommandInput" placeholder="Команда запуска"/><br><br>
+
+    <p style="display:inline">Файловые тесты</p>
+    <input id="runFileTestsCheckbox" name="runFileTestsCheckbox" title="runFileTestsCheckbox" type="checkbox"><br>
+    <input id="runFileTestsUrlInput" name="runFileTestsUrlInput" title="runFileTestsUrlInput" placeholder="Ссылка на репозиторий"/><br>
+    <input id="runFileTestsCommandInput" name="runFileTestsCommandInput" title="runFileTestsCommandInput" placeholder="Команда запуска"/><br><br>
+
+    <input type="submit" value="Создать"/>
+</form>
+</body>
+</html>

@@ -1,4 +1,3 @@
-var path = require('path');
 var request = require('request');
 var config = require('../config.json');
 var baseurl = config.host + config.master.port + config.master.problems;
