@@ -5,8 +5,14 @@ var buildUrl = require('build-url');
 var masterUrl = config.host + config.master.port;
 
 function addProblem(req, res, next) {
+    if (!req.session.login) {
+        req.session.redirectPage = '/addProblem';
+        res.redirect('/loginold');
+        return
+    }
+
     res.render('pages/addProblem', {
-        username: "lol",
+        username: req.session.login,
         actionUrl: config.host + config.frontend.port + config.frontend.addProblem
     })
 }

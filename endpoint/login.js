@@ -45,7 +45,8 @@ function loginEnd(req, res, next) {
                 req.session.fullname = req.body.nameInput;
             }
 
-            res.redirect('/submit');
+            var redirectPage = req.session.redirectPage;
+            res.redirect(redirectPage);
         } else {
             res.render('pages/loginOldWrong', {
                 actionUrl: actionUrl
